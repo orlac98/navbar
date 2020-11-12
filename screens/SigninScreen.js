@@ -1,21 +1,18 @@
 import  React from 'react';
 import { View, Text, Button, StyleSheet} from 'react-native';
 
-
-
-
-const TasksScreen = ({navigation}) => {
+const SigninScreen = ({navigation}) => {
     return (
-      <View style={styles.container}>
-        <Text>Task Screen</Text>
+        <View style={styles.container}>
+        <Text>files Screen</Text>
         
       </View>
     );
-  };
+};
 
-  export default TasksScreen;
+export default SigninScreen;
 
-  const styles = StyleSheet.create({
+const styles = StyleSheet.create({
     container: {
     flex: 1,
      alignItems: 'center',

@@ -4,16 +4,19 @@ import { View, Text, Button, StyleSheet} from 'react-native';
 
 
 
-const TasksScreen = ({navigation}) => {
+const HomeScreen = ({navigation}) => {
     return (
       <View style={styles.container}>
-        <Text>Task Screen</Text>
-        
+        <Text>Home Screen</Text>
+        <Button
+        title="Go to Profile screen"
+        onPress={() => navigation.navigate("ProfileScreen")}
+        />
       </View>
     );
   };
 
-  export default TasksScreen;
+  export default HomeScreen;
 
   const styles = StyleSheet.create({
     container: {

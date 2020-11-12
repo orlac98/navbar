@@ -1,15 +1,17 @@
 import  React from 'react';
+
 import { createStackNavigator } from '@react-navigation/stack';
-// import Icon from 'react-native-vector-icons';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
-import { Ionicons } from '@expo/vector-icons';
-// import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+//icon fonts
+
+import { SimpleLineIcons } from '@expo/vector-icons';
+import { FontAwesome5 } from '@expo/vector-icons';
+import { AntDesign } from '@expo/vector-icons';
 
 import ProfileScreen from './ProfileScreen';
 import TasksScreen from './TasksScreen';
 import FilesScreen from './FilesScreen';
 import FormsScreen from './FormsScreen';
-
 
 
 const TasksStack = createStackNavigator();
@@ -20,36 +22,16 @@ const Tab = createMaterialBottomTabNavigator();
 const MainTabsScreen = () => (
 <Tab.Navigator
       initialRouteName="Tasks"
-      activeColor="#e91e63"
-      style={{ backgroundColor: 'tomato' }}
+      activeColor="#FF7272"
+      barStyle={{ backgroundColor: '#EEEEEE' }}
     >
       <Tab.Screen
         name="Tasks"
-        component={TasksStackScreen}
+        component={TasksScreen}
         options={{
           tabBarLabel: 'Tasks',
           tabBarIcon: ({ color }) => (
-            <Ionicons name="ios-home" color={color} size={26} />
-          ),
-        }}
-      />
-      <Tab.Screen
-        name="Files"
-        component={FilesScreen}
-        options={{
-          tabBarLabel: 'Files',
-          tabBarIcon: ({ color }) => (
-            <Ionicons name="ios-bell" color={color} size={26} />
-          ),
-        }}
-      />
-      <Tab.Screen
-        name="Profile"
-        component={ProfileStackScreen}
-        options={{
-          tabBarLabel: 'Profile',
-          tabBarIcon: ({ color }) => (
-            <Ionicons name="ios-account" color={color} size={26} />
+            <FontAwesome5 name="tasks" color={color} size={26} />
           ),
         }}
       />
@@ -59,7 +41,28 @@ const MainTabsScreen = () => (
         options={{
           tabBarLabel: 'Forms',
           tabBarIcon: ({ color }) => (
-            <Ionicons name="ios-account" color={color} size={26} />
+            <AntDesign name="form" color={color} size={26} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Files"
+        component={FilesScreen}
+        options={{
+          tabBarLabel: 'Files',
+          tabBarIcon: ({ color }) => (
+            <SimpleLineIcons name="folder-alt" color={color} size={25} />
+          ),
+        }}
+      />
+ 
+      <Tab.Screen
+        name="Profile"
+        component={ProfileScreen}
+        options={{
+          tabBarLabel: 'Profile',
+          tabBarIcon: ({ color }) => (
+            <SimpleLineIcons name="user" color={color} size={26} />
           ),
         }}
       />
@@ -70,49 +73,68 @@ const MainTabsScreen = () => (
 
 export default MainTabsScreen;
 
-const TasksStackScreen = ({navigation}) => (
-    <TasksStack.Navigator screenOptions={{
-            headerStyle: {
-                backgroundColor: '#009387',
-              },
-              headerTintColor: '#fff',
-              headerTintStyle: {
-                fontWeight: 'bold'
-              }
-              }}>
-            <TasksStack.Screen name="TasksScreen" component={TasksScreen} 
-            options={{
-           title: 'Overview',
-           headerLeft: () => (
-            <Ionicons.Button name="ios-menu" size={25}
-            backgroundColor="#009387" onPress={() => navigation.openDrawer
-            ()}></Ionicons.Button>
-           )
-            }} />
+// const TasksStackScreen = ({navigation}) => (
+//     <TasksStack.Navigator screenOptions={{
+//             headerStyle: {
+//                 backgroundColor: '#FF7272',
+//               },
+//               headerTintColor: '#fff',
+//               headerTintStyle: {
+//                 fontWeight: 'bold'
+//               }
+//               }}>
+//             <TasksStack.Screen name="HomeScreen" component={HomeScreen} 
+//             options={{
+//            title: 'Overview',
+          
+//             }} />
             
-          </TasksStack.Navigator>
-    );
+//           </TasksStack.Navigator>
+//     );
     
-    const ProfileStackScreen = ({navigation}) => (
-      <ProfileStack.Navigator screenOptions={{
-              headerStyle: {
-                  backgroundColor: '#009387',
-                },
-                headerTintColor: '#fff',
-                headerTintStyle: {
-                  fontWeight: 'bold'
-                }
-                }}>
+//     const ProfileStackScreen = ({navigation}) => (
+//       <ProfileStack.Navigator screenOptions={{
+//               headerStyle: {
+//                   backgroundColor: '#FF7272',
+//                 },
+//                 headerTintColor: '#fff',
+//                 headerTintStyle: {
+//                   fontWeight: 'bold'
+//                 }
+//                 }}>
     
-              <ProfileStack.Screen name="ProfileScreen" component={ProfileScreen}
-               options={{
-             headerLeft: () => (
-               <Ionicons.Button name="ios-menu" size={25}
-               backgroundColor="#009387" onPress={() => navigation.openDrawer
-               ()}></Ionicons.Button>
-             )
+//               <ProfileStack.Screen name="ProfileScreen" component={ProfileScreen}
+//                options={{
+//              headerLeft: () => (
+//                <Ionicons.Button name="ion-android-contact" size={25}
+//                backgroundColor="#009387" onPress={() => navigation.openDrawer
+//                ()}></Ionicons.Button>
+//              )
       
-              }} />
+//               }} />
               
-            </ProfileStack.Navigator>
-      );
+//             </ProfileStack.Navigator>
+//       );
+//       const FormsStackScreen = ({navigation}) => (
+//         <FormsStack.Navigator screenOptions={{
+//                 headerStyle: {
+//                     backgroundColor: '#FF7272',
+//                   },
+//                   headerTintColor: '#fff',
+//                   headerTintStyle: {
+//                     fontWeight: 'bold'
+//                   }
+//                   }}>
+      
+//                 <FormsStack.Screen name="Forms" component={FormsScreen}
+//                  options={{
+//                headerLeft: () => (
+//                  <Ionicons.Button name="ion-android-contact" size={25}
+//                  backgroundColor="#009387" onPress={() => navigation.openDrawer
+//                  ()}></Ionicons.Button>
+//                )
+        
+//                 }} />
+                
+//               </FormsStack.Navigator>
+//         );
